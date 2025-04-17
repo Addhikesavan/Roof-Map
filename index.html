@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roof Overlay Interactive Map</title>
+  <style>
+    .container {
+      position: relative;
+      width: 800px;
+      margin: 50px auto;
+    }
+
+    .base-img {
+      width: 100%;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0.8;
+      display: none;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="buttons">
+    <button onclick="showRoof('flat')">Flat Roof</button>
+    <button onclick="showRoof('pitch')">Pitch Roof</button>
+    <button onclick="showRoof('agraharam')">Agraharam Roof</button>
+    <button onclick="showRoof('temporary1')">Temporary Ground Floor</button>
+    <button onclick="showRoof('temporary2')">Temporary Terrace</button>
+    <button onclick="hideAll()">Hide All</button>
+  </div>
+
+  <div class="container">
+    <img src="Base Image.png" class="base-img" />
+
+    <img src="Flat Roof.png" class="overlay" id="flat" />
+    <img src="Pitch Roof.png" class="overlay" id="pitch" />
+    <img src="Agraharam Roof.png" class="overlay" id="agraharam" />
+    <img src="Temporary Roof on Groundfloor.png" class="overlay" id="temporary1" />
+    <img src="Temporary Roof on Terrace.png" class="overlay" id="temporary2" />
+  </div>
+
+  <script>
+    function showRoof(id) {
+      hideAll();
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function hideAll() {
+      document.querySelectorAll('.overlay').forEach(img => {
+        img.style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
